@@ -1,0 +1,37 @@
+args: 
+  fwd_read: R1
+  fwd_bar: R2
+  rev_bar: R3
+  rev_read: R4
+  
+rev_compliment:(seq: str) -> str:
+  ''' Takes string of sequence, reverse sequence and turns A to T, T to A, G to C, C to G, and N to N '''
+  return rev_str
+
+barcodes_set = create set with barcodes as keys
+loop over barcode file and put barcodes in.
+
+open all four files:
+  for every sequence R1, R2, R3, R4:
+    rev_ string = R3.rev_compliment(seq)
+    seq_string = R2.seq
+    line1 = header
+    header.append({seq_string}-{seq})
+  if N in rev_string or seq_string:
+    write entire read from R1 to R1_unk
+    write entire read from R4 to R2_unk
+  if rev_string = seq_string:
+    if rev_string AND seq_string in barcode_set:
+        write entire read from R1 to R1_{barcode}
+        write entire read from R4 to R2_{barcode}
+    if rev_string OR seq_string in barcode_set:
+        write entire read from R1 to R1_hopped
+        write entire read from R4 to R2_hopped
+    if rev_string AND seq_string NOT in barcode_set:
+      write entire read from R1 to R1_unk
+      write entire read from R4 to R2_unk
+  else:
+      write entire read from R1 to R1_unk
+      write entire read from R4 to R2_unk
+        
+      
