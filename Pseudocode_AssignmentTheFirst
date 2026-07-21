@@ -11,25 +11,26 @@ rev_compliment:(seq: str) -> str:
 barcodes_set = create set with barcodes as keys
 loop over barcode file and put barcodes in.
 
+pairs = empty dictionary
+populate pairs with every possible barcode variation, key is barcode pair value is count
+
 open all four files:
   for every sequence R1, R2, R3, R4:
     rev_ string = R3.rev_compliment(seq)
     seq_string = R2.seq
     line1 = header
-    header.append({seq_string}-{seq})
+    pair = ({seq_string}-{seq})
+    header.append(pair)
   if N in rev_string or seq_string:
     write entire read from R1 to R1_unk
     write entire read from R4 to R2_unk
-  if rev_string = seq_string:
-    if rev_string AND seq_string in barcode_set:
-        write entire read from R1 to R1_{barcode}
-        write entire read from R4 to R2_{barcode}
+  if pair in pairs dictionary:
+      count pair in dictionary
+      write entire read from R1 to R1_{barcode}
+      write entire read from R4 to R2_{barcode}
     if rev_string OR seq_string in barcode_set:
         write entire read from R1 to R1_hopped
         write entire read from R4 to R2_hopped
-    if rev_string AND seq_string NOT in barcode_set:
-      write entire read from R1 to R1_unk
-      write entire read from R4 to R2_unk
   else:
       write entire read from R1 to R1_unk
       write entire read from R4 to R2_unk
