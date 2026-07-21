@@ -24,6 +24,7 @@ open all four files:
   if N in rev_string or seq_string:
     write entire read from R1 to R1_unk
     write entire read from R4 to R2_unk
+    increment unk counter
   if pair in pairs dictionary:
       count pair in dictionary
       write entire read from R1 to R1_{barcode}
@@ -31,8 +32,10 @@ open all four files:
     if rev_string OR seq_string in barcode_set:
         write entire read from R1 to R1_hopped
         write entire read from R4 to R2_hopped
+        increment hopped counter
   else:
       write entire read from R1 to R1_unk
       write entire read from R4 to R2_unk
+      increment unk counter
         
       
