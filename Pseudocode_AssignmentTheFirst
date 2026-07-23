@@ -37,5 +37,16 @@ open all four files:
       write entire read from R1 to R1_unk
       write entire read from R4 to R2_unk
       increment unk counter
-        
+
+
+
+Define the problem:
+- We have Illumina sequencing data for multiple projects/samples/labs on one run. In order to identify samples barcodes were added to both ends of the sequences. Barcodes at both ends helps determine if index hopping occured where during sequence amplification the barcodes from a different sample ended up in the sequence. This code will go through the sequence of each read and the corresponding barcode reads to identify who the sample belongs too and if the indexes were hopped.
+
+Determine/describe what output would be informative:
+- Since we have 24 barcodes we expect 48 read files, 24 forward read and 24 reverse and count how many reads for each barcode. We will also make two index hopped files for forwaard and reverse reads, and two unknown files for forward and reverse reads.
+
+Write examples (unit tests!):
+Include four properly formatted input FASTQ files with read pairs that cover all three categories (dual matched, index-hopped, unknown index)
+Include the appropriate number of properly formatted output FASTQ files given your input files
       
