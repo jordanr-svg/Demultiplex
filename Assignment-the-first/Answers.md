@@ -12,9 +12,11 @@
 | 1294_S1_L008_R4_001.fastq.gz | read2 | 363,246,735 | Phred-33 |
 
 2. Per-base NT distribution
-    1. Use markdown to insert your 4 histograms here.
-    2. **YOUR ANSWER HERE**
-    3. **YOUR ANSWER HERE**
+
+    1. ![Index 1 Mean Quality Scores Per base](/projects/bgmp/jordanro/bioinfo/Bi622/Demultiplex/Assignment-the-first/Index_1_dist.png)
+    2. ![Index 2 Mean Quality Scores Per Base](/projects/bgmp/jordanro/bioinfo/Bi622/Demultiplex/Assignment-the-first/Index_2_dist.png)
+    3. ![Read 1 Mean Quality Scores Per Base](/projects/bgmp/jordanro/bioinfo/Bi622/Demultiplex/Assignment-the-first/Read_1_dist.png)
+    4. ![Read 2 Mean Quality Scores Per Base](/projects/bgmp/jordanro/bioinfo/Bi622/Demultiplex/Assignment-the-first/Read_2_dist.png)
     
 ## Part 2
 1. Define the problem:  We have Illumina sequencing data for multiple projects/samples/labs on one run. In order to identify samples barcodes were added to both ends of the sequences. Barcodes at both ends helps determine if index hopping occured where during sequence amplification the barcodes from a different sample ended up in the sequence. This code will go through the sequence of each read and the corresponding barcode reads to identify who the sample belongs too and if the indexes were hopped.
