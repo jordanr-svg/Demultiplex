@@ -18,6 +18,22 @@
     3. ![Read 1 Mean Quality Scores Per Base](/projects/bgmp/jordanro/bioinfo/Bi622/Demultiplex/Assignment-the-first/Read_1_dist.png)
     4. ![Read 2 Mean Quality Scores Per Base](/projects/bgmp/jordanro/bioinfo/Bi622/Demultiplex/Assignment-the-first/Read_2_dist.png)
     
+
+3. What is a good quality score cutoff for index reads and biological read pairs to utilize for sample identification and downstream analysis, respectively? Justify your answer.
+
+- Anything over a Q-score of 35 will have a predicted base call accuracy of 99.9% which is inacurracy rate of 0.003, there are 72 billion+ bases for the 363 million+ reads. This would mean about 21 million+ inaccurate bases could be accepted. The distribution graphs show that mean base call for most base positions is over 35 making this not an unrealistic cutoff for Q-scores.
+
+4. How many indexes have undetermined (N) base calls? (Utilize your command line tool knowledge. Submit the command(s) you used. CHALLENGE: use a one-line command)
+
+ $ zcat /projects/bgmp/shared/2017_sequencing/1294_S1_L008_R2_001.fastq.gz | sed -n '2~4p' | grep -vc "N"
+
+returned: 359270122
+
+$zcat /projects/bgmp/shared/2017_sequencing/1294_S1_L008_R3_001.fastq.gz | sed -n '2~4p' | grep -vc "N"
+
+returned: 359918684
+
+This is about 10% of all indexes have an undetermined base call
 ## Part 2
 1. Define the problem:  We have Illumina sequencing data for multiple projects/samples/labs on one run. In order to identify samples barcodes were added to both ends of the sequences. Barcodes at both ends helps determine if index hopping occured where during sequence amplification the barcodes from a different sample ended up in the sequence. This code will go through the sequence of each read and the corresponding barcode reads to identify who the sample belongs too and if the indexes were hopped.
 
@@ -40,8 +56,11 @@ EXPECTED OUTPUT FILES:
 
   
 rev_compliment:(seq: str) -> str:
-  ''' Takes string of sequence, reverse sequence and turns A to T, T to A, G to C, C to G, and N to N '''
-  return rev_str
+
+    ''' Takes string of sequence, reverse sequence and turns A to T, T to A, G to C, C to G, and N to N '''
+  
+    return rev_str
 
   IN: "NCTTGCAA"
+
   OUT: "TTGCAAGN"
